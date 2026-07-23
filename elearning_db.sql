@@ -32,8 +32,8 @@ INSERT INTO learners
 VALUES
 (101,'Karthick','India'),
 (102,'Priya','India'),
-(103,NULL,'USA'),
-(104,'Sara',NULL),
+(103,'Harsiv','USA'),
+(104,'Sara','UK'),
 (105,'Bala','Singapore');
 
 SELECT * FROM learners;
@@ -42,9 +42,9 @@ INSERT INTO courses
 VALUES
 (201,'Python for Beginners','Beginner',10000.00),
 (202,'Advanced SQL','Intermediate',15000.00),
-(203,'Power BI Dashboard',NULL,9000.00),
-(204,NULL,'Advanced',17000.00),
-(205,'Excel for Data Analysis','Beginner',NULL);
+(203,'Power BI Dashboard','Analytics',9000.00),
+(204,'Machine Learning','Advanced',17000.00),
+(205,'Excel for Data Analysis','Beginner',10000.00);
 
 SELECT * FROM courses;
 
@@ -52,11 +52,11 @@ INSERT INTO purchases
 VALUES
 (301,101,201,2,'2026-01-10'),
 (302,101,202,1,'2026-01-15'),
-(303,102,203,NULL,'2026-02-05'),
+(303,102,203,2,'2026-02-05'),
 (304,103,201,1,'2026-02-12'),
 (305,103,204,1,'2026-03-01'),
 (306,104,202,3,'2026-03-10'),
-(307,105,203,1,NULL),
+(307,105,203,1,'2026-03-20'),
 (308,102,204,2,'2026-04-02');
 
 SELECT * FROM purchases;
@@ -101,7 +101,7 @@ SELECT
 FROM learners l
 RIGHT JOIN purchases p
 ON l.learner_id = p.learner_id
-INNER JOIN courses c
+RIGHT JOIN courses c
 ON p.course_id = c.course_id
 ORDER BY total_amount DESC;
  
